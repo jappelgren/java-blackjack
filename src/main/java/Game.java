@@ -58,9 +58,18 @@ public class Game {
         deck.remove(0);
     }
 
-    public int scorer(List<Card> player) {
+    public int scorer(List<Card> handToScore) {
         int score = 0;
+        List<Card> player = new ArrayList<>();
+        player.addAll(handToScore);
 
+        for (int i = 0; i < player.size(); i++) {
+            if(player.get(i).getName().equals("Ace") && i != player.size() - 1){
+                Card tempCard = player.get(i);
+                player.remove(i);
+                player.add(tempCard);
+            }
+        }
         for (Card card : player) {
             if(card.getName() == "Ace" && (score + 11) > 21) {
                 score += 1;
