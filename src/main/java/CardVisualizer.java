@@ -16,7 +16,7 @@ public class CardVisualizer {
         String cardVisualized = "";
 
         for(Card card : hand) {
-            String row1 = " ⌈--------⌉";
+            String row1 = "┌─────────┐";
             if(card == hand.get(hand.size() - 1)) {
                 cardVisualized += row1 + "\n";
             } else {
@@ -28,11 +28,11 @@ public class CardVisualizer {
         for (Card card : hand) {
             String row2 = "";
             if(card.getName().length() > 2) {
-                row2 = " | " + card.getName().charAt(0) + "      |";
+                row2 = "│" + card.getName().charAt(0) + "        │";
             } else if(card.getName().length() == 2) {
-                row2 = " | " + card.getName() + "     |";
+                row2 = "│" + card.getName() + "       │";
             } else {
-                row2 = " | " + card.getName() + "      |";
+                row2 = "│" + card.getName() + "        │";
             }
 
             if(card == hand.get(hand.size() - 1)) {
@@ -45,7 +45,7 @@ public class CardVisualizer {
         for (Card card : hand) {
             char suitSymbol = suitDetector(card);
 
-            String row3 = " | " + suitSymbol + "      |";
+            String row3 = "│" + suitSymbol + "        │";
 
             if (card == hand.get(hand.size() - 1)) {
                 cardVisualized += row3 + "\n";
@@ -55,7 +55,7 @@ public class CardVisualizer {
         }
 
         for (Card card : hand) {
-            String row4 = " |        |";
+            String row4 = "│         │";
             if(card == hand.get(hand.size() - 1)) {
                 cardVisualized += row4 + "\n";
             } else {
@@ -66,7 +66,7 @@ public class CardVisualizer {
         for (Card card : hand) {
             char suitSymbol = suitDetector(card);
 
-            String row5 = " |      " + suitSymbol + " |";
+            String row5 = "│        " + suitSymbol + "│";
 
             if(card == hand.get(hand.size() - 1)) {
                 cardVisualized += row5 + "\n";
@@ -78,11 +78,11 @@ public class CardVisualizer {
         for (Card card : hand) {
             String row6 = "";
             if(card.getName().length() > 2) {
-                row6 = " |      " + card.getName().charAt(0) + " |";
+                row6 = "│        " + card.getName().charAt(0) + "│";
             } else if(card.getName().length() == 2) {
-                row6 = " |     " + card.getName() + " |";
+                row6 = "│       " + card.getName() + "│";
             } else {
-                row6 = " |      " + card.getName() + " |";
+                row6 = "│        " + card.getName() + "│";
             }
 
             if(card == hand.get(hand.size() - 1)) {
@@ -93,7 +93,7 @@ public class CardVisualizer {
         }
 
         for (Card card : hand) {
-            String row7 = " ⌊________⌋";
+            String row7 = "└─────────┘";
             cardVisualized += row7;
         }
         return cardVisualized;
@@ -113,7 +113,7 @@ public class CardVisualizer {
                 suitSymbol = '♣';
                 break;
             case HEARTS:
-                suitSymbol = '♥';
+                suitSymbol = '\u2665';
                 break;
             default:
                 suitSymbol = ' ';
